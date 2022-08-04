@@ -132,78 +132,7 @@ export default function ApplicationClub({
         trackerRecord={trackerRecord}
       />
       <SavedInfo saved={saved} poster={poster} router={router} />
-      <Card px={[4, 4]} py={[4, 4]} mt={2}>
-        <Box
-          sx={{ display: ['block', 'flex'], alignItems: 'center', mb: '2rem' }}
-        >
-          <Flex sx={{ alignItems: 'center', flexGrow: 1 }}>
-            <Text
-              sx={{
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                color: 'blue'
-              }}
-            >
-              <Icon glyph="home" onClick={() => goHome(false)} />
-            </Text>
-            <Text
-              variant="subheadline"
-              sx={{ fontWeight: 400, mb: 0, flexGrow: 1, ml: 2, color: 'blue' }}
-              as="div"
-            >
-              <Text
-                sx={{
-                  textDecoration: 'none',
-                  color: 'blue',
-                  cursor: 'pointer'
-                }}
-                onClick={() => goHome(false)}
-              >
-                {returnLocalizedMessage(router.locale, 'APPLY')}
-              </Text>
-
-              {' / '}
-              <b>
-                {params.type == 'club'
-                  ? returnLocalizedMessage(router.locale, 'CLUB')
-                  : returnLocalizedMessage(router.locale, 'LEADER')}
-              </b>
-            </Text>
-          </Flex>
-          <Box
-            sx={{
-              alignItems: 'center',
-              display: 'flex',
-              cursor: 'pointer',
-              '> svg': { display: ['none', 'inline'] },
-              mt: [2, 0]
-            }}
-            onClick={() => poster()}
-          >
-            <Button
-              sx={{
-                color: 'white',
-                mr: 2,
-                fontWeight: '800',
-                textTransform: 'uppercase',
-                bg: saved ? '#33d6a6' : '#ff8c37',
-                ':hover,:focus': saved ? { transform: 'none' } : {}
-              }}
-            >
-              {saved
-                ? returnLocalizedMessage(router.locale, 'SAVED')
-                : returnLocalizedMessage(router.locale, 'SAVE')}
-            </Button>
-            <Icon
-              glyph={saved ? 'checkmark' : 'important'}
-              color={saved ? '#33d6a6' : '#ff8c37'}
-            />
-          </Box>
-        </Box>
-        <Text sx={{ fontSize: '20px', color: 'black' }}>
-          {returnLocalizedMessage(router.locale, 'LANG_INFO')}
-        </Text>
+      <Card px={[4, 4]} py={[4, 4]}>
         {(params.type == 'club' ? manifest.clubs : manifest.leaders).map(
           (sectionItem, sectionIndex) => (
             <Box key={sectionIndex}>
@@ -211,7 +140,7 @@ export default function ApplicationClub({
               applicationsRecord.fields['Leaders Emails'].length ===
                 1 ? null : (
                 <>
-                  <Box sx={{ textAlign: 'left' }}>
+                  <Box sx={{ textAlign: 'left', mt: `${params.type === 'club' && sectionItem.header === 'Venue' ? '-1rem' : '0'}` }}>
                     <Text
                       sx={{ color: 'red', fontSize: '27px', fontWeight: 800 }}
                     >

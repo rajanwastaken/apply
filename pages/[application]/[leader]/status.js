@@ -115,11 +115,11 @@ export default function ApplicationOnboarding({
             {applicationMessage}
           </Text>
         </Heading>
-        <Divider sx={{ color: 'slate', my: [3, 4] }} />
+        <Divider sx={{ color: 'slate', my: [2, 3] }} />
 
         {applicationStatus === 'applied' ? (
           <>
-            <Box sx={{ fontSize: [1, 2], mb: '30px' }}>
+            <Box sx={{ fontSize: [1, 2], mb: '30px', pt: '1rem'  }}>
               <Text>
                 {returnLocalizedMessage(router.locale, 'EYE_ON_EMAIL')}
               </Text>
@@ -214,7 +214,7 @@ export default function ApplicationOnboarding({
           </>
         ) : applicationStatus === 'rejected' ? (
           <>
-            <Heading sx={{ fontSize: [2, 3] }} as="h4">
+            <Heading sx={{ fontSize: [1, 2], fontWeight: '400' }} as="p">
               <Text>
                 {returnLocalizedMessage(
                   router.locale,
@@ -256,7 +256,7 @@ export default function ApplicationOnboarding({
           </>
         ) : applicationStatus === 'onboarded' ? (
           <>
-            <Heading sx={{ fontSize: [2, 3], mb: '30px' }} as="h3">
+            <Heading sx={{ fontSize: [2, 3], mb: '30px', pt: '1rem' }} as="h3">
               <Text>
                 {returnLocalizedMessage(router.locale, 'EXCITED_TO_HAVE_YOU')}
               </Text>
